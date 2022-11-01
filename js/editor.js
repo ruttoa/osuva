@@ -16,5 +16,9 @@ wp.domReady(() => {
         label: 'Primary',
         isDefault: true,
     });
+    wp.blocks.registerBlockStyle('core/button', {
+        name: 'text',
+        label: 'Text',
+    });
     
 });

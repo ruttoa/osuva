@@ -37,6 +37,9 @@
         display: block;
         padding: .5rem 1rem;
     }
+    a {
+        color: inherit;
+    }
     .menu-item-has-children {
         position: relative;
         vertical-align: middle;

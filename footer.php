@@ -1,11 +1,11 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
-			<!-- <?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-				<div class="footer-widgets widgets footer-1">
-					<?php // dynamic_sidebar('sidebar-footer'); ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
+				<div class="footer-widgets alignwide widgets footer-1">
+					<?php dynamic_sidebar('sidebar-footer'); ?>
 				</div>
-			<?php endif; ?> -->
-			<div class="copytext-wrapper">
+			<?php endif; ?>
+			<div class="copytext-wrapper alignwide">
 				<small class="copytext">
 					&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo('name'); ?>.</a> 
 					<?php echo get_the_privacy_policy_link( $before = ' <span class="separator">|</span> ' ); ?>

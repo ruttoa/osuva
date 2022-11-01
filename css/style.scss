@@ -20,7 +20,10 @@ html {
 }
 body {
     font-size: 1rem;
+    background-color: $grey;
+    color: #000;
 }
+
 .browserupgrade {
     margin-bottom: 0;
     border-radius: 0;
@@ -158,6 +161,8 @@ body {
 	z-index: 4;
     position: relative;
     padding: 4rem 0 2rem;
+    background-color: #000;
+    color: #fff;
 }
 
 

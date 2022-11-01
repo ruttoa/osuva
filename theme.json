@@ -13,24 +13,19 @@
 			    "color" : "#fff"
 		    },
         {
-          "name": "Green",
-			    "slug": "green",
-			    "color" : "#00D796"
+          "name": "Black",
+			    "slug": "black",
+			    "color" : "#000"
 		    },
         {
-          "name": "Blue",
-			    "slug": "blue",
-			    "color" : "#023D58"
-		    },
-        {
-          "name": "Pink",
-			    "slug": "pink",
-			    "color" : "#FFD9DA"
+          "name": "Orange",
+			    "slug": "orange",
+			    "color" : "#f0760e"
 		    },
         {
           "name": "Grey",
 			    "slug": "grey",
-			    "color" : "#F2F2F2"
+			    "color" : "#c9d3d6"
 		    }
       ],
       "duotone": [],
@@ -115,7 +110,7 @@
       "core/heading": {}
     },
     "custom": {
-      "primary-color": "var(--wp--preset--color--green)"
+      "primary-color": "var(--wp--preset--color--orange)"
     } 
   },
   "styles": {

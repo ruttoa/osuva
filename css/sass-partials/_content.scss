@@ -24,9 +24,11 @@ strong, b {
     font-weight: 700;
 }
 a {
-    color: inherit;
-    &:hover {
-        color: $green;
+  color: $brand-primary;
+  &:hover,
+  &:focus {
+    color: $brand-primary;
+    text-decoration: underline;
     }
 }
 .has-large-font-size {
@@ -98,58 +100,29 @@ img.emoji {
     font-size: .9rem;
     padding: 1rem 1.5rem .95rem;
     font-weight: 900;
-    background: $blue;
+    background: $brand-primary;
     border-radius: 100px;
     transition: 300ms all ease-in-out;
     &:active,
     &.active,
     &:focus, 
     &:hover {
-        background-color: $green;
+        background-color: $brand-primary;
         color: #fff;
         text-decoration: none;
         transition: none;
     }
 }
 
-.has-v-up,
-.has-v-down {
-    position: relative;
-    overflow: visible;
-}
-.has-v-up:after,
-.has-v-down:after {
-    content:"";
-    display: block;
-    position: absolute;
-    width: 100%;
-    width: calc(100% - 4rem);
-    min-height: auto;
-    min-width: 1400px;
-    max-width: 1500px;
-    height: 224px;
-    background: transparent url('../img/vendelin-v.svg') right center no-repeat;
-    background-size: contain;
-    z-index: 3;
-}
-.has-v-up:after {
-    top: 0;
-    transform: translateY(-50%);
-}
-.has-v-down:after {
-    transform: translateY(50%);
-    bottom: 0;
-}
-
 @media (min-width: 576px) {}
 
 @media (min-width: 768px) {
-    .entry-content .alignfull {
+    .alignfull {
         margin-left: calc((100% - 100vw) / 2);
 		margin-right: calc((100% - 100vw) / 2);
         width: 100vw;
     }
-    .entry-content .alignwide {
+    .alignwide {
 		margin-left: calc((100% - 100vw) / 4);
 		margin-right: calc((100% - 100vw) / 4);
 		width: calc(100% + ((100vw - 100%) / 2));
@@ -160,13 +133,7 @@ img.emoji {
 
 @media (min-width: 1200px) {}
 
-@media (max-width: 1199px) {
-    .has-v-up:after,
-    .has-v-down:after {
-        height: 144px;
-        min-width: auto;
-    }
-}
+@media (max-width: 1199px) {}
 
 @media (max-width: 991px) {}
 
@@ -174,8 +141,8 @@ img.emoji {
     .entry-content {
         padding: 0 15px;
     }
-    .entry-content > .alignfull,
-    .entry-content > .alignwide {
+    .alignfull,
+    .alignwide {
         margin-left: -15px;
         margin-right: -15px;
         width: 100vw;
@@ -206,9 +173,4 @@ img.emoji {
     .has-large-font-size {
         font-size: 2rem;
     }
-    .has-v-up:after,
-    .has-v-down:after {
-        height: 107px;
-    }
-
 }
