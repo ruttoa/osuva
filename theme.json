@@ -1,0 +1,128 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "defaultPalette": false,
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "palette": [
+        {
+          "name": "White",
+			    "slug": "white",
+			    "color" : "#fff"
+		    },
+        {
+          "name": "Green",
+			    "slug": "green",
+			    "color" : "#00D796"
+		    },
+        {
+          "name": "Blue",
+			    "slug": "blue",
+			    "color" : "#023D58"
+		    },
+        {
+          "name": "Pink",
+			    "slug": "pink",
+			    "color" : "#FFD9DA"
+		    },
+        {
+          "name": "Grey",
+			    "slug": "grey",
+			    "color" : "#F2F2F2"
+		    }
+      ],
+      "duotone": [],
+      "defaultDuotone": false,
+      "gradients": [],
+      "defaultGradients": false
+    },
+    "layout": {
+      "contentSize": "768px",
+      "wideSize": "1000px"
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true,
+      "units": [
+        "rem",
+        "em",
+        "vh",
+        "vw",
+        "%"
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fontStyle": true,
+      "lineHeight": false,
+      "fontFamilies": [
+        {
+          "name": "Heading",
+          "slug": "heading",
+          "fontFamily": "'Heebo', sans-serif"
+        },
+        {
+          "name": "Body",
+          "slug": "body",
+          "fontFamily": "Heebo, sans-serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.85rem",
+          "name": "Small"
+        },
+        {
+          "slug": "base",
+          "size": "1rem",
+          "name": "Base"
+        },
+        {
+          "slug": "lead",
+          "size": "1.3rem",
+          "name": "Lead paragraph"
+        },
+        {
+          "slug": "h3",
+          "size": "2rem",
+          "name": "H3"
+        },
+        {
+          "slug": "h2",
+          "size": "2.725rem",
+          "name": "H2"
+        },
+        {
+          "slug": "h1",
+          "size": "3.4rem",
+          "name": "H1"
+        }
+      ]
+    },
+    "blocks": {
+      "core/paragraph": {
+        "color": {},
+        "custom": {},
+        "layout": {},
+        "spacing": {},
+        "typography": {}
+      },
+      "core/heading": {}
+    },
+    "custom": {
+      "primary-color": "var(--wp--preset--color--green)"
+    } 
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "2rem"
+    }
+  },
+  "customTemplates": {},
+  "templateParts": {}
+}
