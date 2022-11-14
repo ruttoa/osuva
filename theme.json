@@ -12,20 +12,36 @@
 			    "slug": "white",
 			    "color" : "#fff"
 		    },
+        
+        {
+          "name": "Orange",
+			    "slug": "orange",
+			    "color" : "#F0760C"
+		    },
+        {
+          "name": "Grey 20",
+			    "slug": "grey-20",
+			    "color" : "#ECEFF0"
+		    },
+        {
+          "name": "Grey 40",
+			    "slug": "grey-40",
+			    "color" : "#CAD3D7"
+		    },
+        {
+          "name": "Grey 60",
+			    "slug": "grey-60",
+			    "color" : "#A7B5BC"
+		    },
+        {
+          "name": "Grey 80",
+			    "slug": "grey-80",
+			    "color" : "#566167"
+		    },
         {
           "name": "Black",
 			    "slug": "black",
 			    "color" : "#000"
-		    },
-        {
-          "name": "Orange",
-			    "slug": "orange",
-			    "color" : "#f0760e"
-		    },
-        {
-          "name": "Grey",
-			    "slug": "grey",
-			    "color" : "#c9d3d6"
 		    }
       ],
       "duotone": [],
@@ -56,22 +72,28 @@
       "lineHeight": false,
       "fontFamilies": [
         {
-          "name": "Heading",
-          "slug": "heading",
-          "fontFamily": "'Heebo', sans-serif"
+					"fontFace": [
+						{
+							"fontFamily": "Protrakt-ExtraBold",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "bold",
+							"src": [
+								"file:./fonts/Protrakt-ExtraBold.otf"
+							]
+						}
+          ],
+					"fontFamily": "\"Protrakt-ExtraBold\", Impact, sans-serif",
+					"name": "Heading",
+					"slug": "heading"
         },
         {
           "name": "Body",
           "slug": "body",
-          "fontFamily": "Heebo, sans-serif"
+          "fontFamily": "Poppins, sans-serif"
         }
       ],
       "fontSizes": [
-        {
-          "slug": "small",
-          "size": "0.85rem",
-          "name": "Small"
-        },
         {
           "slug": "base",
           "size": "1rem",
@@ -79,23 +101,28 @@
         },
         {
           "slug": "lead",
-          "size": "1.3rem",
+          "size": "1.3125rem",
           "name": "Lead paragraph"
         },
         {
-          "slug": "h3",
-          "size": "2rem",
-          "name": "H3"
+          "slug": "title-4",
+          "size": "1.375rem",
+          "name": "Title 4"
         },
         {
-          "slug": "h2",
-          "size": "2.725rem",
-          "name": "H2"
+          "slug": "title-3",
+          "size": "1.6875rem",
+          "name": "Title 3"
         },
         {
-          "slug": "h1",
-          "size": "3.4rem",
-          "name": "H1"
+          "slug": "title-2",
+          "size": "2.5rem",
+          "name": "Title 2"
+        },
+        {
+          "slug": "title-1",
+          "size": "3.125rem",
+          "name": "Title 1"
         }
       ]
     },
