@@ -35,4 +35,26 @@ jQuery(function ($) {
             }
         }
     });
+
+    /**
+     * Accordion
+     */
+    $accordion = $(".wp-block-group.accordion");
+    $hash = window.location.hash;
+    $accordion.each(function () {
+        $(this).find('> h3:not(:first-child)').each(function () {
+            $(this).addClass('closed').next('.wp-block-group').addClass('collapse');
+        });
+        $(this).find('> h3').on('click', function () {
+            $(this).next('.wp-block-group').toggleClass('collapse');
+            $(this).toggleClass('closed');
+        });
+    });
+    if ($hash) {
+        var hash = $hash.substring(1); // Puts hash in variable, and removes the # character
+        console.log("Hash found: #" + hash);
+    } else {
+        // No hash found
+    }
+
 });

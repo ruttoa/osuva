@@ -6,10 +6,10 @@
 				</div>
 			<?php endif; ?>
 			<div class="copytext-wrapper alignwide">
-				<small class="copytext">
-					&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo('name'); ?>.</a> 
+				<div class="copytext">
+					Copyright &copy; <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a> <?php echo date('Y'); ?> 
 					<?php echo get_the_privacy_policy_link( $before = ' <span class="separator">|</span> ' ); ?>
-				</small>
+				</div>
 			</div>
 	    </div>
     </footer>

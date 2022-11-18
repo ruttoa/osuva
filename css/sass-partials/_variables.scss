@@ -1,5 +1,9 @@
 $font-family-primary: var(--wp--preset--font-family--body);
 $font-family-heading: var(--wp--preset--font-family--heading);
-$grey: var(--wp--preset--color--grey);
+$grey-20: var(--wp--preset--color--grey-20);
+$grey-40: var(--wp--preset--color--grey-40);
+$grey-60: var(--wp--preset--color--grey-60);
+$grey-80: var(--wp--preset--color--grey-80);
+$grey: $grey-40;
 $orange: var(--wp--preset--color--orange);
 $brand-primary: var(--wp--custom--primary-color);

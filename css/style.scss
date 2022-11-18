@@ -35,8 +35,8 @@ body {
 .container {
     // max-width: 768px;
     // margin: 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 .hero {
     min-height: 92vh;
@@ -170,9 +170,29 @@ body {
     padding: 4rem 0 2rem;
     background-color: #000;
     color: #fff;
+    margin-top: 200px;
 }
-
-
+.footer-orange-section {
+    transform: translateY(calc(-50% - 4rem)); // Half + footer top padding
+    // max-width: var(--wp--style--global--wide-size);
+    margin: 0 auto -100px;
+}
+.copytext-wrapper {
+    padding-top: 2rem;
+    margin-top: 6rem;
+    border-top: 1px solid #707070;
+    a {
+        color: #fff;
+        text-transform: uppercase;
+    }
+}
+.footer-links a {
+    color: inherit;
+}
+.footer-ajanvaraus,
+.copytext-wrapper {
+    font-size: 1.1875rem; // 19px
+}
 
 
 /*------------------------------------*\
