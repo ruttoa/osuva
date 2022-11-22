@@ -57,4 +57,11 @@ jQuery(function ($) {
         // No hash found
     }
 
+    // var el = document.querySelector(".hero::after");
+
+    // el.addEventListener("mousemove", function(e) {
+    //     el.style.backgroundPositionX = -e.offsetX + "px";
+    //     el.style.backgroundPositionY = -e.offsetY + "px";
+    // });
+
 });

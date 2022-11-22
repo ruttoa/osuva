@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<main role="main" class="clearfix">
+	<main role="main" class="clearfix" data-title="Modern shooting range">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section>
 				<?php get_template_part( 'template-parts/page', 'header' ); ?>

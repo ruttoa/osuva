@@ -186,8 +186,19 @@ body {
         text-transform: uppercase;
     }
 }
-.footer-links a {
-    color: inherit;
+.footer .footer-links {
+    a {
+        color: inherit;
+    }
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: flex-start;
+        a {
+            text-transform: uppercase;
+            color: $orange;
+            font-weight: 500;
+        }
+    }
 }
 .footer-ajanvaraus,
 .copytext-wrapper {
