@@ -40,7 +40,7 @@ jQuery(function ($) {
      * Accordion
      */
     $accordion = $(".wp-block-group.accordion");
-    $hash = window.location.hash;
+    var hash = window.location.hash;
     $accordion.each(function () {
         $(this).find('> h3:not(:first-child)').each(function () {
             $(this).addClass('closed').next('.wp-block-group').addClass('collapse');
@@ -50,9 +50,9 @@ jQuery(function ($) {
             $(this).toggleClass('closed');
         });
     });
-    if ($hash) {
-        var hash = $hash.substring(1); // Puts hash in variable, and removes the # character
-        console.log("Hash found: #" + hash);
+    if (hash) {
+        var hash = hash.substring(1); // Puts hash in variable, and removes the # character
+        // console.log("Hash found: #" + hash);
     } else {
         // No hash found
     }

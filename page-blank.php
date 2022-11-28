@@ -1,7 +1,7 @@
 <?php 
 /* Template Name: Blank */
 get_header(); ?>
-	<main role="main" class="clearfix">
+	<main role="main" class="clearfix" data-title="Modern shooting range">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<div class="container entry-container clearfix">
 			<?php 

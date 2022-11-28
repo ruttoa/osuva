@@ -12,6 +12,8 @@ body {
 }
 h1 {
     font-size: var(--wp--preset--font-size--title-1);
+}
+h1, .has-title-1-font-size {
     line-height: 1.24;
 }
 h1, h2 {
@@ -24,18 +26,27 @@ h3, h4 {
 }
 h2 {
     font-size: var(--wp--preset--font-size--title-2);
+}
+h2, .has-title-2-font-size {
     line-height: 1.3;
 }
 h3 {
     font-size: var(--wp--preset--font-size--title-3);
+}
+h3, .has-title-3-font-size {
     line-height: 1.296;
 }
 h4 {
     font-size: var(--wp--preset--font-size--title-4);
+}
+h4, .has-title-4-font-size {
     line-height: 1.5;
 }
 h5 {
     font-size: var(--wp--preset--font-size--base);
+}
+h5, .has-lead-font-size {
+    line-height: 1.667;
 }
 h6 {
     font-size: .85rem;
@@ -50,9 +61,6 @@ a {
     color: $brand-primary;
     text-decoration: underline;
     }
-}
-.has-lead-font-size {
-    line-height: 1.667;
 }
 img,
 video {
@@ -105,11 +113,11 @@ img.emoji {
     }
 }
 
-.wp-block-button {
-    color: inherit;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
+// .wp-block-button {
+//     color: inherit;
+//     margin-top: 1.5rem;
+//     margin-bottom: 1.5rem;
+// }
 .btn, 
 .btn.btn-primary,
 .wp-block-button__link,
@@ -141,11 +149,22 @@ img.emoji {
     color: #000;
     border-radius: 0;
     border: 0;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        transform: translateY(-50%) rotate(-45deg);
+        border-right: solid 4px #000;
+        border-bottom: solid 4px #000;
+    }
     &::after {
-        content: ">";
+        content: "";
         display: inline-block;
         background-color: $orange;
-        color: #000;
         margin-left: 1rem;
         width: 40px;
         height: 40px;
@@ -153,14 +172,33 @@ img.emoji {
         vertical-align: middle;
         border-radius: 40px;
     }
+    &:hover {
+        color: $orange;
+    }
+    @media (max-width: 600px) {
+        background-color: #000;
+        color: #fff!important; // To overwrite editor overrides
+        border-radius: 100px;
+        padding-left: 1.5rem;
+        &::after {
+            margin-left: 2rem;
+        }
+        &:hover {
+            color: $orange!important;
+        }
+    }
 }
 .card-button {
     border: solid 1px #000;
     border-radius: 15px;
-    padding: 1rem;
+    padding: 2rem;
     position: relative;
+    :first-child {
+        margin-bottom: auto;
+    }
     a {
         color: inherit;
+        text-decoration: none;
         &::after {
             content: "";
             position: absolute;
@@ -168,14 +206,49 @@ img.emoji {
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 2;
         }
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        right: calc(2rem + 15px);
+        bottom: calc(2rem + 20px);
+        width: 12px;
+        height: 12px;
+        transform: translateY(50%) rotate(-45deg);
+        border-right: solid 4px $orange;
+        border-bottom: solid 4px $orange;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        background-color: #000;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: middle;
+        border-radius: 40px;
     }
     &:hover {
         background-color: #000;
         color: #fff;
         a {
             text-decoration: none;
+            color: $orange;
         }
+        &::before {
+            border-color: #000;
+        }
+        &::after {
+            background-color: $orange;
+        }
+    }
+    @media (min-width: 782px) {
+        min-height: 250px;
     }
 }
 .has-pattern-top,
@@ -229,7 +302,7 @@ img.emoji {
 .hero {
     position: relative;
     min-height: 92vh;
-    &:before {
+    &:after {
         content: attr(id);
         position: absolute;
         right: calc(100% - 1rem);
@@ -246,7 +319,7 @@ img.emoji {
         text-align: right;
     }
     &.wp-block-media-text {
-        &:before {
+        &:after {
             @media (min-width: 600px) {
                 color: #000;
             }
@@ -255,15 +328,32 @@ img.emoji {
             position: relative;
             &:before {
                 @extend .has-pattern-left;
+                z-index: 2;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                opacity: .25;
+                z-index: 1;
             }
             @media (max-width: 600px) {
                 min-height: 320px;
+                &:before {
+                    height: 17px;
+                    width: 100%;
+                }
             }
         }
     }
     &.wp-block-cover {
-        padding-left: calc(131px + 2rem);
-        &:after {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        &:before {
             content: "";
             position: absolute;
             left: 0;
@@ -272,7 +362,17 @@ img.emoji {
             height: 100%;
             background: $orange url(../img/OSUVA-Texture1.png) center center no-repeat;
             background-size: cover;
+            z-index: 1;
             // animation: animatedBackground 30s linear infinite alternate;
+            @media (max-width: 600px) {
+                width: 100%;
+                height: 17px;
+                min-height: 0;
+            }
+        }
+        @media (min-width: 601px) {
+            margin-right: 0rem!important;
+            padding-left: calc(131px + 2rem);
         }
     }
 }
@@ -286,16 +386,63 @@ img.emoji {
 // }
 .home-section {
     border-top: solid 1px $grey-60;
-    padding: 4rem;
     &:last-child {
         border-bottom: solid 1px $grey-60;
     }
-    + .home-section {
-        margin-block-start: 0;
+    @media (min-width: 601px) {
+        padding: 4rem;
+        &.has-pattern-left:before,
+        &.has-pattern-right:before {
+            width: 28vw;
+        }
+        + .home-section {
+            margin-block-start: 0;
+        }
     }
-    &.has-pattern-left:before,
-    &.has-pattern-right:before {
-        width: 28vw;
+    @media (max-width: 600px) {
+        + .home-section {
+            margin-top: 4rem;
+        }
+        &.wp-block-cover {
+            padding: 0;
+            min-height: 0!important;
+        }
+        &.has-pattern-right {
+            &:before {
+                display: none;
+            }
+            .wp-block-media-text__media {
+                position: relative;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: $orange url(../img/OSUVA-Texture1.png) center center no-repeat;
+                    background-size: cover;
+                    right: 0;
+                    top: 0;
+                    width: 30px;
+                    height: 100%;
+                }
+            }
+        }
+        &.has-pattern-left {
+            &:before {
+                display: none;
+            }
+            .wp-block-media-text__media {
+                position: relative;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: $orange url(../img/OSUVA-Texture1.png) center center no-repeat;
+                    background-size: cover;
+                    left: 0;
+                    top: 0;
+                    width: 30px;
+                    height: 100%;
+                }
+            }
+        }
     }
 }
 
@@ -509,6 +656,12 @@ ol.numbered-list {
 
 @media (min-width: 576px) {}
 
+@media (min-width: 601px) {
+    .wp-block-media-text .wp-block-media-text__content {
+        padding: 0 4rem;
+    }
+}
+
 @media (min-width: 768px) {
     // .alignfull {
     //     margin-left: calc((100% - 100vw) / 2);
@@ -526,7 +679,13 @@ ol.numbered-list {
 
 @media (min-width: 1200px) {}
 
-@media (max-width: 1199px) {}
+@media (max-width: 1199px) {
+    .wp-block-media-text {
+        h1, h2 {
+            hyphens: auto;
+        }
+    }
+}
 
 @media (max-width: 991px) {}
 
