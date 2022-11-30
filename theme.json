@@ -70,6 +70,7 @@
       "dropCap": false,
       "fontStyle": true,
       "lineHeight": false,
+      "fluid": true,
       "fontFamilies": [
         {
 					"fontFace": [
@@ -97,32 +98,53 @@
         {
           "slug": "base",
           "size": "1rem",
-          "name": "Base"
+          "name": "Base",
+          "fluid": false
         },
         {
           "slug": "lead",
           "size": "1.3125rem",
-          "name": "Lead paragraph"
+          "name": "Lead paragraph",
+          "fluid": {
+						"min": "1rem",
+						"max": "1.3125rem"
+					}
         },
         {
           "slug": "title-4",
           "size": "1.375rem",
-          "name": "Title 4"
+          "name": "Title 4",
+          "fluid": {
+						"min": "1.1rem",
+						"max": "1.375rem"
+					}
         },
         {
           "slug": "title-3",
           "size": "1.6875rem",
-          "name": "Title 3"
+          "name": "Title 3",
+          "fluid": {
+						"min": "1.154rem",
+						"max": "1.6875rem"
+					}
         },
         {
           "slug": "title-2",
           "size": "2.5rem",
-          "name": "Title 2"
+          "name": "Title 2",
+          "fluid": {
+						"min": "1.231rem",
+						"max": "2.5rem"
+					}
         },
         {
           "slug": "title-1",
           "size": "3.125rem",
-          "name": "Title 1"
+          "name": "Title 1",
+          "fluid": {
+						"min": "2rem",
+						"max": "3.125rem"
+					}
         }
       ]
     },

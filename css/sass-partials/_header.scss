@@ -47,6 +47,7 @@
             position: relative;
             display: block;
             padding: .5rem 1rem;
+            white-space: nowrap;
             &:before {
                 content: "";
                 position: absolute;
@@ -109,7 +110,7 @@
             border-radius: 0;
             box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            min-width: 10rem;
+            min-width: 16rem;
             padding: 0;
             margin: 0;
             font-size: inherit;
@@ -129,7 +130,73 @@
             > .menu-item + .menu-item {
                 border-top: solid 1px $grey-80;
             }
+            .current_page_item > a {
+                font-weight: bold;
+                color: $orange;
+                &:before {
+                    display: none;
+                }
+            }
         }
+    }
+}
+
+.hamburger-box {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+}
+.hamburger-inner {
+    display: block;
+    position: absolute;
+    top: 50%;
+    background-color: transparent;
+    height: 1px;
+    width: 100%;
+    // margin-top: -2px;
+}
+.hamburger-inner::before, 
+.hamburger-inner::after {
+    width: 50px;
+    height: 1px;
+    background-color: $brand-primary;
+    border-radius: 0;
+    position: absolute;
+    transition-property: transform;
+    // transition-duration: 0.15s;
+    // transition-timing-function: ease;
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger-inner::before, 
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+.hamburger-inner::before {
+    top: -5px;
+    transition: top 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger-inner::after {
+    bottom: -5px;
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+:where(.is-active) .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    &::before {
+        background-color: #fff;
+        top: 0;
+        transform: rotate(180deg);
+        transition: top 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    &::after {
+        background-color: #fff;
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 }
 
@@ -154,70 +221,7 @@
     }
     &.is-active {
         position: fixed;
-        .hamburger-inner {
-            transform: rotate(225deg);
-            transition-delay: 0.12s;
-            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            &::before,
-            &::after {
-                margin-left: 0;
-            }
-            &::before {
-                top: 0;
-                opacity: 0;
-                transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
-            }
-            &::after {
-                bottom: 0;
-                transform: rotate(-90deg);
-                transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-            }
-        }
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            background-color: #fff;
-        }
     }
-}
-.hamburger-box {
-    width: 40px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-}
-.hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -2px;
-    transition-duration: 0.22s;
-    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-.hamburger-inner, 
-.hamburger-inner::before, 
-.hamburger-inner::after {
-    width: 40px;
-    height: 4px;
-    background-color: $brand-primary;
-    border-radius: 4px;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-}
-.hamburger-inner::before, 
-.hamburger-inner::after {
-    content: "";
-    display: block;
-    margin-left: -7px;
-}
-.hamburger-inner::before {
-    top: -10px;
-    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
-}
-.hamburger-inner::after {
-    bottom: -10px;
-    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
 .site-title {
@@ -230,49 +234,83 @@
 	margin-bottom: 0;
     font-weight: 400;
 }
-.site-header .btn {
-    float: right;
-    &:after {
-        content: "";
-        height: 18px;
-        width: 11px;
-        display: inline-block;
-        background: transparent url('../img/cell-phone.svg') center center no-repeat;
-        background-size: contain;
-        vertical-align: middle;
-        margin-left: 1rem;
-        margin-top: -6px;
-    }
-}
 
 @media (min-width: 576px) {}
 
 @media (min-width: 768px) {}
 
-@media (min-width: 992px) {
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {
+    .navbar {
+        min-height: 130px;
+    }
+    .navbar-brand {
+        position: absolute;
+        margin-right: none;
+    }
+    #nav-wrapper {
+        margin-right: auto; 
+        margin-left: auto;
+        padding-left: 230px;
+        padding-right: 230px; // to prevent the menu going under logo or menu-button
+    }
     .navbar-toggler {
         display: none;
     }
     .navbar-nav {
         flex-direction: row;
     }
+    .site-header .menu-btn {
+        position: absolute;
+        right: 2rem;
+        a {
+            background-color: $orange;
+            display: block;
+            text-align: center;
+            white-space: nowrap;
+            border-radius: 100px;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+            &:active,
+            &:focus, 
+            &:hover {
+                opacity: .7;
+            }
+            &:before {
+                display: none;
+            }
+            &:after {
+                content: "";
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border: 0;
+                border-right: solid 2px;
+                border-bottom: solid 2px;
+                border-color: inherit;
+                margin-left: 3.5rem;
+                transform: rotate(-45deg);
+                transform-origin: center;
+                vertical-align: middle;
+            }
+        }
+    }
 }
 
-@media (min-width: 1200px) {}
-
-@media (max-width: 1199px) {}
-
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
+    .logo-img {
+        max-height: 40px;
+    }
     body.menu-open {
         height: 100vh;
         overflow: hidden;
-    } 
-    .navbar-toggler,
-    .navbar-brand {
-        z-index: 1002;
     }
-    .menu-open .navbar-brand .site-logo {
-        display: none;
+    .navbar {
+        padding: 3.25rem 2rem;
+    }
+    .navbar-toggler {
+        z-index: 1002;
     }
     .navbar .collapse {
         visibility: hidden;
@@ -321,16 +359,17 @@
         margin: 0 auto;
         color: #000;
         width: 100%;
-        padding: 115px 2rem 1rem;
+        padding: 2rem;
         text-align: center;
         .menu-item {
             padding: 0;
             a {
                 padding: 1rem 0;
                 color: #000;
+                white-space: normal;
             }
         }
-        .menu-item:not(.menu-btn) {
+        .menu-item {
             a {
                 transition: all 500ms ease;
                 &:hover,
@@ -357,36 +396,20 @@
                         padding-bottom: .5rem;
                     }
                 }
+                .current_page_item > a {
+                    color: inherit;
+                }
             }
         }
     }
-    .site-header .menu-btn a {
-        border-color: #fff;
-        color: #fff;
-        display: block;
-        text-align: center;
-        margin: 1.5rem 0;
-        &:active,
-        &:focus, 
-        &:hover {
-            border-color: #fff;
-            background-color: #fff;
-            color: $brand-primary;
-        }
-    }
 }
+
+@media (max-width: 991px) {}
 
 @media (max-width: 767px) {
     .logo-img {
-        max-height: 40px;
+        max-height: 30px;
     }
 }
 
-@media (max-width: 575px) {
-    .logo-img {
-        max-height: 35px;
-    }
-    .site-header .btn {
-        display: none;
-    }
-}
+@media (max-width: 575px) {}
