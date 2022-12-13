@@ -411,11 +411,11 @@ img.emoji {
         @media (min-width: 601px) {
             margin-right: 0rem!important;
             padding-left: calc(131px + 4rem);
-            padding-right: 4rem;
+            padding-right: calc(131px + 4rem); // to center the content
         }
         @media (min-width: 1200px) {
             .wp-block-column {
-                flex-basis: 50%!important;
+                flex-basis: 60%!important;
             }
         }
     }
@@ -741,7 +741,13 @@ ol.numbered-list {
 	// }
 }
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    .yhteystiedot .entry-content>.alignwide {
+        padding-left: calc(131px - 2rem); // width of hero pattern minus container padding
+        padding-right: calc(131px - 2rem);
+        // max-width: 1500px;
+    }
+}
 
 @media (min-width: 1200px) {}
 
