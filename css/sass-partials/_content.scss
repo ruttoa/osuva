@@ -112,7 +112,7 @@ img.emoji {
     min-height: 300px;
     h1, h2, h3, h4, p {
         padding: 0;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--wp--style--block-gap);
     }
 }
 
@@ -148,52 +148,65 @@ img.emoji {
 }
 .wp-block-button.is-style-text .wp-block-button__link {
     background-color: transparent;
-    padding: 0;
+    padding: 0 2.5rem 0 3.5rem;
     color: #000;
     border-radius: 0;
     border: 0;
     position: relative;
-    &::before {
+    min-height: 40px;
+    line-height: 40px;
+    white-space: nowrap;
+    transition: color 0.45s cubic-bezier(0.65,0,.076,1);
+    &::after {
         content: "";
         position: absolute;
-        right: 15px;
+        left: 13px;
         top: 50%;
         width: 12px;
         height: 12px;
         transform: translateY(-50%) rotate(-45deg);
         border-right: solid 4px #000;
         border-bottom: solid 4px #000;
+        transition: all 0.45s cubic-bezier(0.65,0,.076,1);
     }
-    &::after {
+    &::before {
         content: "";
-        display: inline-block;
+        position: absolute;
+        left:0;
+        top: 0;
         background-color: $orange;
-        margin-left: 1rem;
+        margin-right: 1rem;
         width: 40px;
         height: 40px;
         line-height: 40px;
         vertical-align: middle;
         border-radius: 40px;
+        z-index: -1;
+        transition: width 0.45s cubic-bezier(0.65,0,.076,1);
     }
     &:hover {
-        color: $orange;
+        color: #000!important; // to override any editor color settings
+        &::before {
+            width: 100%;
+        }
+        &::after {
+            left: 1.5rem;
+        }
     }
     @media (max-width: 600px) {
         background-color: #000;
-        color: #fff!important; // To overwrite editor overrides
         border-radius: 100px;
-        padding-left: 1.5rem;
-        &::before {
+        color: #fff!important; // To overwrite editor overrides
+        padding-left: 4rem;
+        z-index: 1;
+        &::after {
             right: 16px;
             width: 10px;
             height: 10px;
             border-width: 2px;
         }
-        &::after {
-            margin-left: 2rem;
-        }
         &:hover {
-            color: $orange!important;
+            color: #000!important;
         }
     }
 }
@@ -501,7 +514,6 @@ img.emoji {
     }
 }
 .pricing-table {
-    border-top: solid 1px #000;
     border-bottom: solid 1px #000;
     > h3, > h4, > h5 {
         border-bottom: solid 1px #000;
@@ -516,20 +528,39 @@ img.emoji {
         border-right: solid 1px #000;
         gap: 0;
         height: 100%;
+        align-items: flex-start!important;
         > * {
             width: 100%;
             padding: 1.5rem;
-            &.pricing-subtitles > * + * {
-                border-top: solid 1px #000;
-                margin-top: 0;
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 150px;
+            &.pricing-subtitles {
+                min-height: 0;
+                > * + * {
+                    border-top: solid 1px #000;
+                    margin-top: 0;
+                }
+                > p {
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+            }
+            p {
+                width: 100%;
             }
         }
         .has-heading-font-family {
-            margin-top: 1.5rem;
+            margin-top: auto;
+            margin-bottom: auto;
             white-space: nowrap;
         }
         p:not(.has-heading-font-family):not(.has-lead-font-size) {
-            margin-top: .5rem;
+            position: absolute;
+            bottom: 0.5rem;
+            right: 1rem;
         }
     }
     @media (max-width: 781px) {
@@ -541,6 +572,7 @@ img.emoji {
                 width: unset;
                 flex-basis: 50%;
                 padding: 1.5rem 1rem;
+                min-height: 120px;
             }
             .has-heading-font-family {
                 font-size: var(--wp--preset--font-size--title-1)!important;
@@ -596,8 +628,8 @@ img.emoji {
     }
     > .wp-block-group {
         transition: all 300ms ease;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 1.25rem;
+        padding-bottom: 4rem;
         opacity: 1;
         &.collapse {
             padding-top: 0;
