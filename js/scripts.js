@@ -51,10 +51,10 @@ jQuery(function ($) {
         });
     });
     if (hash) {
-        var hash = hash.substring(1); // Puts hash in variable, and removes the # character
+        // var hash = hash.substring(1); // Puts hash in variable, and removes the # character
         // console.log("Hash found: #" + hash);
-    } else {
-        // No hash found
+        $(hash).next('.wp-block-group').removeClass('collapse');
+        $(hash).removeClass('closed');
     }
 
     // var el = document.querySelector(".hero::after");

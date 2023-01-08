@@ -255,7 +255,8 @@ img.emoji {
         vertical-align: middle;
         border-radius: 40px;
     }
-    &:hover {
+    &:hover,
+    &--alt {
         background-color: #000;
         color: #fff;
         a {
@@ -269,6 +270,21 @@ img.emoji {
             background-color: $orange;
         }
     }
+    &--alt:hover {
+        background-color: $orange;
+        border-color: $orange;
+        color: #000;
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        &::before {
+            border-color: $orange;
+        }
+        &::after {
+            background-color: #000;
+        }
+    } 
     @media (min-width: 782px) {
         min-height: 250px;
     }
