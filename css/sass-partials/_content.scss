@@ -436,6 +436,11 @@ img.emoji {
         }
     }
 }
+@media (max-width: 600px) {
+    .home .hero .wp-block-cover__image-background {
+        object-position: 70% 50%!important; // Fix home page image alignment on mobile
+    }
+}
 // @keyframes animatedBackground {
 //   from {
 //     background-position: 0 0;
