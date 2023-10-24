@@ -7,3 +7,25 @@ $grey-80: var(--wp--preset--color--grey-80);
 $grey: $grey-40;
 $orange: var(--wp--preset--color--orange);
 $brand-primary: var(--wp--custom--primary-color);
+
+@mixin button-reset {
+    border: 0;
+    font-family: $font-family-primary;
+    color: #000;
+    letter-spacing: 0;
+    font-size: var(--wp--preset--font-size--title-4);
+    padding: 1rem 1.5rem .95rem;
+    font-weight: bold;
+    background: $brand-primary;
+    border-radius: 100px;
+    transition: 300ms all ease-in-out;
+    &:active,
+    &.active,
+    &:focus, 
+    &:hover {
+        background-color: $brand-primary;
+        color: #fff;
+        text-decoration: none;
+        transition: none;
+    }
+}
